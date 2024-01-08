@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div class="content-section">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Delete Post</legend>
+      <p>Are you sure? <b>{{ object.title }}</b> cannot be recovered, once deleted!</p>
+    </fieldset>
+    <div class="from-group">
+      <button class="btn btn-outline-danger my-4" type="submit">Yes, delete</button>
+      <a class="btn btn-outline-secondary my-4" href="{% url 'post-detail' object.id %}"s>Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock content %}
